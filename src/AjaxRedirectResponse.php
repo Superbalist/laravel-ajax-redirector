@@ -1,0 +1,45 @@
+<?php
+
+namespace Superbalist\AjaxRedirector;
+
+use Illuminate\Http\RedirectResponse;
+
+class AjaxRedirectResponse extends RedirectResponse
+{
+
+    /**
+     * Sets the redirect target of this response.
+     *
+     * @param string $url The URL to redirect to
+     * @return RedirectResponse The current response.
+     * @throws \InvalidArgumentException
+     */
+    public function setTargetUrl($url)
+    {
+        if (empty($url)) {
+            throw new \InvalidArgumentException('Cannot redirect to an empty URL.');
+        }
+
+        $this->targetUrl = $url;
+
+        $data = [
+            'redirect_url' => $url
+        ];
+
+        $this->setContent(json_encode($data));
+        $this->headers->set('Content-Type', 'application/json');
+
+        return $this;
+    }
+
+    /**
+     * Is the response a redirect of some form?
+     *
+     * @param string $location
+     * @return bool
+     */
+    public function isRedirect($location = null)
+    {
+        return true;
+    }
+}
