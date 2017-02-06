@@ -12,6 +12,7 @@ class Redirector extends BaseRedirector
      * @param string $path
      * @param int $status
      * @param array $headers
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     protected function createRedirect($path, $status, $headers)
