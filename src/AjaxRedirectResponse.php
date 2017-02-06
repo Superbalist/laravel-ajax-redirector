@@ -6,13 +6,14 @@ use Illuminate\Http\RedirectResponse;
 
 class AjaxRedirectResponse extends RedirectResponse
 {
-
     /**
      * Sets the redirect target of this response.
      *
      * @param string $url The URL to redirect to
-     * @return RedirectResponse The current response.
+     *
      * @throws \InvalidArgumentException
+     *
+     * @return RedirectResponse The current response.
      */
     public function setTargetUrl($url)
     {
@@ -23,7 +24,7 @@ class AjaxRedirectResponse extends RedirectResponse
         $this->targetUrl = $url;
 
         $data = [
-            'redirect_url' => $url
+            'redirect_url' => $url,
         ];
 
         $this->setContent(json_encode($data));
@@ -36,6 +37,7 @@ class AjaxRedirectResponse extends RedirectResponse
      * Is the response a redirect of some form?
      *
      * @param string $location
+     *
      * @return bool
      */
     public function isRedirect($location = null)
