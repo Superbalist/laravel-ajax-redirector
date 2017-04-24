@@ -11,7 +11,7 @@ class AjaxRedirectServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['redirect'] = $this->app->share(function ($app) {
+        $this->app->singleton('redirect', function ($app) {
             $redirector = new Redirector($app['url']);
 
             // If the session is set on the application instance, we'll inject it into
