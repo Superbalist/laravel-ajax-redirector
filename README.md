@@ -12,6 +12,10 @@ This package changes the redirect response for AJAX calls from 301 or 302 to a 2
 redirects which in a lot of cases, isn't the intention. In most cases, the intention is for the browser to redirect
 the client to the intended page.
 
+For **Laravel 4**, please use version 1.0.0.
+
+For **Laravel 5**, please use version 2.0.0+
+
 ## Installation
 
 ```bash
