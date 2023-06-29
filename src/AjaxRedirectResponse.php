@@ -40,7 +40,7 @@ class AjaxRedirectResponse extends RedirectResponse
      *
      * @return bool
      */
-    public function isRedirect($location = null)
+    public function isRedirect(string $location = null): bool
     {
         return true;
     }
